@@ -1,20 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <ul>
-      
-      {% for month in months %}
 
-      <a href="{% url 'month-challange' month %}">
-        <li>{{ month |title }}</li>
+{% extends "base.html" %}
+{% load static %}
+
+
+
+
+{% block title %}
+  Months
+{% endblock title %}
+{% block body %}
+<header>
+  {% include "snippit/navbar.html" %}
+</header>
+<div class="container mx-auto">
+  <h1 class="text-4xl font-bold text-center">Month List</h1>
+</div>
+<div class='container mx-auto border-solid border-2 border-sky-500 p-5 rounded-md'>
+  <ul>
+    {% for month in month_list %}
+    <div class="border border-red-500 rounded-md p-4 my-3">
+      <a class="border-solid"  href="{% url 'month-challange' month %}">
+        <li class="text-red-700 text-center"  >{{ month |title }}</li>
       </a>
+    
+    </div>
+    
 
-      {% endfor %}
-    </ul>
-  </body>
-</html>
+
+   
+    {% endfor %}
+  </ul>
+
+
+</div>
+
+
+
+{% endblock body %}

@@ -1,0 +1,15 @@
+
+
+
+{% extends "base.html" %}
+
+{% block body %}
+{% include "snippit/navbar.html" %}
+{% if text %}
+<p>{{text}}</p></body>
+
+{% else %}
+<p>There is no challange</p>
+
+{% endif %}
+{% endblock body %}

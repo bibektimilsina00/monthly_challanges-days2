@@ -13,20 +13,25 @@ challenges  ={
 'september':'Learn Django for at least 20 minutes every day',
 'october':'Learn Django for at least 20 minutes every day',
 'november':'Learn Django for at least 20 minutes every day',
-'december':'Learn Django for at least 20 minutes every day'
+'december':None
 
 }
 
 
 months=list(challenges.keys())
+# months=['january','february','march','april','may','june','july','august','september','october','november','december']
 
 def index(request):
     return render(request,'index.html',{
-        'months':months})
+        'month_list':months})
+
+ 
     
 
 
 def months_challanges(request,month):
-    return  HttpResponse(
-        f"<p>{challenges[month]}</p>"
-    )
+    return render(request,'months.html',{
+        'text':challenges[month],
+    },)
+    
+    
